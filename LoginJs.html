@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+    table{
+        padding-top: 50px;
+        padding-left: 40px;
+    }
+    td{
+        padding: 10px;
+    }
+
+    </style>
+</head>
+<body>
+ <table>
+<tr>
+    <td>LoginName</td>
+    <td><input type="text" id="loginname" placeholder="Enter LoginName"></td>
+</tr>
+<tr>
+    <td>Password</td>
+    <td><input type="password" id="password" placeholder="Enter Password"></td>
+</tr>
+<tr>
+    <td><input type="button" id="login" value="Login" onclick="login()"></td>
+    <td><input type="button" id="Reset" value="Reset"></td>
+</tr>
+ </table>   
+
+<script>
+
+var userArray = [{
+    LoginName: 'Kashi',
+    Password: '1234'
+}];
+// var stored;
+
+function login(){
+var LoginName = document.getElementById('loginname').value;
+var Password = document.getElementById('password').value;
+// var userObj = {LName: LoginName, Pass: Password}
+userArray.push({LoginName:LoginName, Password:Password});
+// localStorage.setItem('User', JSON.stringify(userArray));
+
+// // console.log(userInfo)
+// console.log(User.LName)
+// 
+// var LocalUser = localStorage.setItem('LUser', JSON.stringify(LoginName));
+// var LocalPassword = localStorage.setItem('LUser', JSON.stringify(Password));
+
+// console.log(User);
+// var userInfo = localStorage.setItem('User', JSON.stringify(User));
+// User.push(localStorage.setItem('User', JSON.stringify(User.LName, User.Password)));
+// User.push({User.LName, User.Pass});
+// console.log(User);
+window.localStorage.setItem('User', JSON.stringify(userArray));
+
+}
+// var stored = window.localStorage.getItem(JSON.parse(User));
+// console.log(stored);
+// break
+// console.log(localStorage.getItem(User));
+</script>
+</body>
+</html>
