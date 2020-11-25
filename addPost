@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post</title>
+<style>
+    /* #form{
+        padding: 30px;
+    } */
+
+    
+</style>
+</head>
+<body>
+<div id="form">
+    <span>User Id: <input type="text" id="UserId" placeholder="enter UserId"></span><br><br>
+      <span>Title: <input type="text" id="title" placeholder="enter Title"></span><br><br>
+    <span>Description: <textarea  id="body" rows="8" cols="20" placeholder="enter Description"></textarea></span><br>
+    <br><input type="button" value= "AddPost" id="bttn" onclick="addPost()">
+</div>
+    <script>
+        function addPost(){
+        var uId = document.getElementById('UserId').value;
+        var uTitle = document.getElementById('title').value;
+        var uBody = document.getElementById('body').value;
+        var dataObj = JSON.stringify({
+            title: uTitle,
+            body: uBody,
+            userId: uId,
+        });
+        // console.log(dataObj);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+        if(xhttp.readyState == 4 && xhttp.status == 201){
+            const getResponse = xhttp.responseText;
+            let response = JSON.parse(getResponse);
+        }
+        }
+        xhttp.open('POST', 'http://jsonplaceholder.typicode.com/posts')
+        xhttp.send(dataObj);
+        }
+    </script>
+</body>
+</html>
